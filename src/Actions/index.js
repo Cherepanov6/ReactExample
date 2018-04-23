@@ -28,7 +28,7 @@ export function newUser(userData){
                 .then(response=>response.json())
                 .then(body=>{  
                     if(body.success){
-                        const newUserData = {key: body.data.id, id: body.data.id, ...userData};
+                        const newUserData = {...userData, key: body.data.id, id: body.data.id};
                         let newData = oldData.slice(0);
                         newData.push(newUserData)                       
                         dispatch({
